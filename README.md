@@ -6,35 +6,12 @@
 
 Welcome to npm-cli-gh-cookie, this template os for npm command-line.
 
-## How to use this template
-
-1. Grant write permission to gh-actions
-
-   https://github.com/HiromiShikata/npm-cli-gh-cookie/settings/actions
-
-1. Set secrets (optional)
-
-   https://github.com/HiromiShikata/npm-cli-gh-cookie/settings/secrets/actions
-
-   - [GH_TOKEN](https://github.com/settings/tokens)
-   - [NPM_TOKEN](https://www.npmjs.com/settings/hiromi/tokens)
-
-1. Remove `How to use this template` section from README.md
-
 ## Usage 🛠️
 
 Here's how you can use npm-cli-gh-cookie:
 TODO: copy output of `npx npm-cli-gh-cookie --help`
 
 ```
-Usage: Replace all words [options] <targetDirectoryPath> <beforeWord> <afterWord>
-
-Arguments:
-  targetDirectoryPath  Path to the target directory where replacements are to be made
-  beforeWord           Word to be replaced throughout the target directory
-  afterWord            Word to replace the beforeWord with
-
-Options:
 
 ```
 
