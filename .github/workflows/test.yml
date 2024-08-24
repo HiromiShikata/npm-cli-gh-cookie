@@ -33,6 +33,10 @@ jobs:
 
       - name: Run tests
         run: npm run test
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          AUTHENTICATOR_KEY: ${{ secrets.AUTHENTICATOR_KEY }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
