@@ -6,23 +6,15 @@ describe('commander program', () => {
       'npx ts-node ./src/adapter/entry-points/cli/index.ts -h',
     ).toString();
 
-    expect(output.trim()).toEqual(`Usage: Example CLI [options] <path>
-
-This is an example
+    expect(output.trim())
+      .toEqual(`Usage: Get gh cookie [options] <username> <password> <authenticatorKey>
 
 Arguments:
-  path        Path of example
+  username          Username
+  password          Password
+  authenticatorKey  Authenticator Key
 
 Options:
-  -h, --help  display help for command`);
-  });
-  it('should output file contents', () => {
-    const output = execSync(
-      'npx ts-node ./src/adapter/entry-points/cli/index.ts ./testdata/src/domain/entities',
-    ).toString();
-
-    expect(output.trim()).toEqual(
-      JSON.stringify('./testdata/src/domain/entities'),
-    );
+  -h, --help        display help for command`);
   });
 });
