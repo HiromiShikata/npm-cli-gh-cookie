@@ -9,19 +9,26 @@ Welcome to npm-cli-gh-cookie, this template os for npm command-line.
 ## Usage 🛠️
 
 Here's how you can use npm-cli-gh-cookie:
-TODO: copy output of `npx npm-cli-gh-cookie --help`
 
 ```
+Usage: Get gh cookie [options] <username> <password> <authenticatorKey>
+
+Arguments:
+  username          Username
+  password          Password
+  authenticatorKey  Authenticator Key
+
+Options:
+  -h, --help        display help for command
 
 ```
 
 ## Example 📖
 
 Here's a quick example to illustrate its usage:
-TODO:
 
 ```
-npx npm-cli-gh-cookie
+npx gh-cookie <username> <password> <authenticatorKey>
 ```
 
 ## Contributing
