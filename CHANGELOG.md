@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.1.1...v1.1.2) (2024-12-07)
+
+
+### Bug Fixes
+
+* main path to bin from dist ([4ded46c](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/4ded46c537a9a39830eb71516389fe8e4fc17f3d))
+
 ## [1.1.1](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.1.0...v1.1.1) (2024-12-07)
 
 
