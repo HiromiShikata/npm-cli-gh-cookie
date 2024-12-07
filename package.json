@@ -2,7 +2,7 @@
   "name": "gh-cookie",
   "version": "1.0.2",
   "description": "",
-  "main": "dist/index.js",
+  "main": "bin/index.js",
   "scripts": {
     "prebuild": "npm run doctor",
     "doctor:node-version": "check-node-version --node 20 --npx 10 --npm 10",
