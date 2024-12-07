@@ -17,6 +17,7 @@
   "bin": {
     "gh-cookie": "./bin/adapter/entry-points/cli/index.js"
   },
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HiromiShikata/npm-cli-gh-cookie.git"
