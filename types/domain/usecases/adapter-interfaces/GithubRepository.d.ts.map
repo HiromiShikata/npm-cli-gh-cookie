@@ -1,0 +1,1 @@
+{"version":3,"file":"GithubRepository.d.ts","sourceRoot":"","sources":["../../../../src/domain/usecases/adapter-interfaces/GithubRepository.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,gBAAgB;IAC/B,gBAAgB,CACd,QAAQ,EAAE,MAAM,EAChB,QAAQ,EAAE,MAAM,EAChB,gBAAgB,EAAE,MAAM,GACvB,OAAO,CAAC,MAAM,CAAC,CAAC;CACpB"}
