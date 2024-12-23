@@ -22,5 +22,16 @@ describe('PuppeteerGithubRepository', () => {
     );
 
     expect(typeof result).toBe('string');
+    const cookie: unknown = JSON.parse(result);
+    if (!Array.isArray(cookie)) {
+      throw new Error('Invalid cookie array');
+    }
+    const loggedIn = cookie
+      .filter(
+        (c: unknown): c is { name: string; value: string } =>
+          c !== null && typeof c === 'object' && 'name' in c && 'value' in c,
+      )
+      .some((c) => c.name === 'logged_in' && c.value === 'yes');
+    expect(loggedIn).toBeDefined();
   });
 });
