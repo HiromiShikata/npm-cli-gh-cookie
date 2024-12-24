@@ -33,6 +33,16 @@ export class PuppeteerGithubRepository implements GithubRepository {
 
     const cookie = await page.cookies();
 
+    const loggedIn = cookie
+      .filter(
+        (c: unknown): c is { name: string; value: string } =>
+          c !== null && typeof c === 'object' && 'name' in c && 'value' in c,
+      )
+      .some((c) => c.name === 'logged_in' && c.value === 'yes');
+    if (!loggedIn) {
+      throw new Error('Failed to login');
+    }
+
     await browser.close();
     return JSON.stringify(cookie);
   };
