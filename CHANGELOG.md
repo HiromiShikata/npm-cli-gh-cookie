@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.2.0...v1.2.1) (2024-12-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency puppeteer to v23.11.1 ([29dcb61](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/29dcb616e710261dbb79b724a5315ff44aaeca4c))
+
 # [1.2.0](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.1.3...v1.2.0) (2024-12-24)
 
 
