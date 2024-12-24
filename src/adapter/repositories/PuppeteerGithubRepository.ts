@@ -11,6 +11,7 @@ export class PuppeteerGithubRepository implements GithubRepository {
     const browser = await puppeteer.launch({
       headless: true,
       defaultViewport: null,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
     const page = await browser.newPage();
