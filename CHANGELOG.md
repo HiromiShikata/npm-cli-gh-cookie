@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.1.3...v1.2.0) (2024-12-24)
+
+
+### Bug Fixes
+
+* add sandbox setting to puppeteer ([65f4f09](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/65f4f097f69fec41620431bfd3b087e4d8c98de5))
+
+
+### Features
+
+* check succeded or not / close [#46](https://github.com/HiromiShikata/npm-cli-gh-cookie/issues/46) ([fb65231](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/fb65231a2743f04ba58bfab0791996c7435ef31a))
+
 ## [1.1.2](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.1.1...v1.1.2) (2024-12-07)
 
 

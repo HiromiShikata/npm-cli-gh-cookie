@@ -12,6 +12,7 @@ class PuppeteerGithubRepository {
             const browser = await puppeteer_1.default.launch({
                 headless: true,
                 defaultViewport: null,
+                args: ['--no-sandbox', '--disable-setuid-sandbox'],
             });
             const page = await browser.newPage();
             await page.goto('https://github.com/login', { waitUntil: 'networkidle0' });
@@ -27,6 +28,12 @@ class PuppeteerGithubRepository {
             await page.keyboard.type(token);
             await new Promise((resolve) => setTimeout(resolve, 5000));
             const cookie = await page.cookies();
+            const loggedIn = cookie
+                .filter((c) => c !== null && typeof c === 'object' && 'name' in c && 'value' in c)
+                .some((c) => c.name === 'logged_in' && c.value === 'yes');
+            if (!loggedIn) {
+                throw new Error('Failed to login');
+            }
             await browser.close();
             return JSON.stringify(cookie);
         };
