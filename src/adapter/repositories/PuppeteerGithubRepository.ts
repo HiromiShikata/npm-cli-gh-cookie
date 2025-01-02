@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import { generateToken } from 'authenticator';
 import { GithubRepository } from '../../domain/usecases/adapter-interfaces/GithubRepository';
+import fs from 'fs';
 
 export class PuppeteerGithubRepository implements GithubRepository {
   getCookieContent = async (
@@ -41,6 +42,12 @@ export class PuppeteerGithubRepository implements GithubRepository {
       )
       .some((c) => c.name === 'logged_in' && c.value === 'yes');
     if (!loggedIn) {
+      if (!fs.existsSync('tmp')) {
+        fs.mkdirSync('tmp');
+      }
+      await page.screenshot({ path: 'tmp/gh-cookies/failed-to-login.png' });
+      const html = await page.content();
+      console.error(html);
       throw new Error('Failed to login');
     }
 
