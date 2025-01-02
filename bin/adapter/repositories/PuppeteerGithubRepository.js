@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PuppeteerGithubRepository = void 0;
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const authenticator_1 = require("authenticator");
+const fs_1 = __importDefault(require("fs"));
 class PuppeteerGithubRepository {
     constructor() {
         this.getCookieContent = async (userName, password, authenticatorKey) => {
@@ -32,6 +33,12 @@ class PuppeteerGithubRepository {
                 .filter((c) => c !== null && typeof c === 'object' && 'name' in c && 'value' in c)
                 .some((c) => c.name === 'logged_in' && c.value === 'yes');
             if (!loggedIn) {
+                if (!fs_1.default.existsSync('tmp')) {
+                    fs_1.default.mkdirSync('tmp');
+                }
+                await page.screenshot({ path: 'tmp/gh-cookies/failed-to-login.png' });
+                const html = await page.content();
+                console.error(html);
                 throw new Error('Failed to login');
             }
             await browser.close();

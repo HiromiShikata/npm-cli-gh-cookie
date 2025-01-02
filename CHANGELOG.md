@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.2.1...v1.3.0) (2025-01-02)
+
+
+### Features
+
+* take screenshot if failed to login ([dab7aad](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/dab7aadc652cfe8bb134442e0d1638c363c7cd64))
+
 ## [1.2.1](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.2.0...v1.2.1) (2024-12-24)
 
 
