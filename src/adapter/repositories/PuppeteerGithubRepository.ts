@@ -42,8 +42,8 @@ export class PuppeteerGithubRepository implements GithubRepository {
       )
       .some((c) => c.name === 'logged_in' && c.value === 'yes');
     if (!loggedIn) {
-      if (!fs.existsSync('tmp')) {
-        fs.mkdirSync('tmp');
+      if (!fs.existsSync('tmp/gh-cookies')) {
+        fs.mkdirSync('tmp/gh-cookies', { recursive: true });
       }
       await page.screenshot({ path: 'tmp/gh-cookies/failed-to-login.png' });
       const html = await page.content();
