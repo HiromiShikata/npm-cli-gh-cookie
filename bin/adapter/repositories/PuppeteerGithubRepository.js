@@ -33,8 +33,8 @@ class PuppeteerGithubRepository {
                 .filter((c) => c !== null && typeof c === 'object' && 'name' in c && 'value' in c)
                 .some((c) => c.name === 'logged_in' && c.value === 'yes');
             if (!loggedIn) {
-                if (!fs_1.default.existsSync('tmp')) {
-                    fs_1.default.mkdirSync('tmp');
+                if (!fs_1.default.existsSync('tmp/gh-cookies')) {
+                    fs_1.default.mkdirSync('tmp/gh-cookies', { recursive: true });
                 }
                 await page.screenshot({ path: 'tmp/gh-cookies/failed-to-login.png' });
                 const html = await page.content();
