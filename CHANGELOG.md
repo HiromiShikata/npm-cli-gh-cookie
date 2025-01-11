@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.1...v1.3.2) (2025-01-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency commander to v13 ([7dc73af](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/7dc73af77c6794677f9bdf099e01f0038de59475))
+
 ## [1.3.1](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.0...v1.3.1) (2025-01-02)
 
 
