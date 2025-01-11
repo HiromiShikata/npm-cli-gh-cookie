@@ -68,6 +68,6 @@
     "authenticator": "^1.1.5",
     "commander": "^13.0.0",
     "dotenv": "^16.4.5",
-    "puppeteer": "^23.1.1"
+    "puppeteer": "^24.0.0"
   }
 }
