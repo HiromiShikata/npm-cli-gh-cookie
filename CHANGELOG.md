@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.7...v1.3.8) (2025-03-08)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([e86e92c](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/e86e92c739dfd024a70172deddc54d0e83be3d99))
+
 ## [1.3.7](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.6...v1.3.7) (2025-03-01)
 
 
