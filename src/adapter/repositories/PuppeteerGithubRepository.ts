@@ -18,7 +18,7 @@ export class PuppeteerGithubRepository implements GithubRepository {
     const page = await browser.newPage();
     await page.goto('https://github.com/login', { waitUntil: 'networkidle0' });
 
-    await page.focus('#login');
+    await page.focus('#login_field');
     await page.keyboard.type(userName, { delay: 100 });
 
     await page.focus('#password');
