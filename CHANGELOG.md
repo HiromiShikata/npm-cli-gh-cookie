@@ -1,3 +1,24 @@
+## [1.3.9](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.8...v1.3.9) (2025-07-15)
+
+
+### Bug Fixes
+
+* change name of username ([4964bd6](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/4964bd6ef5d305c618fc4f49aef62b0b12ef97f5))
+* **deps:** update all non-major dependencies ([097d2ef](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/097d2ef757853f87d55521704b0878852db7d9dd))
+* **deps:** update all non-major dependencies ([364b8a3](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/364b8a38ed0ffae7c2ce1d7a076b195d41062468))
+* **deps:** update all non-major dependencies ([bcfa2c1](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/bcfa2c18fd3efaba26b56894672374e14adb1f05))
+* **deps:** update all non-major dependencies ([9039b26](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/9039b269fababcd5bd359c475e1b52a7d0eb622b))
+* **deps:** update all non-major dependencies ([b0a8333](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/b0a833324acae57b0f48acb31b8ff69fa64a6435))
+* **deps:** update all non-major dependencies ([ecaab5c](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/ecaab5cf19a964e7b45256408a7a38cb5e25202e))
+* **deps:** update all non-major dependencies to v24.9.0 ([9dd1f50](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/9dd1f50613f891683fafee2842b88f8fa77556b5))
+* **deps:** update dependency commander to v14 ([8f1770f](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/8f1770f95dacfa2b1c174528f6995cd7bfb7cb57))
+* **deps:** update dependency dotenv to v17 ([d10b790](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/d10b79072f7149bcaeab1de1d6b32764e54c9338))
+* **deps:** update dependency puppeteer to v24.10.0 ([2ec9eca](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/2ec9ecad1ad24fdb5d20f6a45892fa21770c0d47))
+* **deps:** update dependency puppeteer to v24.11.1 ([2e12635](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/2e126355b826a6ede0d144f2a1c94a02bb367c25))
+* **deps:** update dependency puppeteer to v24.7.2 ([1a2842f](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/1a2842fbcfe5734a52dfbd86743f3f1f4a8f7c95))
+* **deps:** update dependency puppeteer to v24.8.1 ([cd6818b](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/cd6818b749f52eb02df2076f4f008b4985147274))
+* failed to login if it runs multipletimes ([1e3dc27](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/1e3dc278172206ccf3280d4b68be9caff08af634))
+
 ## [1.3.8](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.7...v1.3.8) (2025-03-08)
 
 
