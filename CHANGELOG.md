@@ -1,3 +1,10 @@
+## [1.3.19](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.18...v1.3.19) (2025-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update semantic-release monorepo ([472a7c8](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/472a7c860c97146099fbffbe034e1ba894a71c2c))
+
 ## [1.3.18](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.17...v1.3.18) (2025-09-20)
 
 
