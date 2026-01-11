@@ -40,6 +40,10 @@
     ]
   },
   "homepage": "https://github.com/HiromiShikata/npm-cli-gh-cookie#readme",
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
