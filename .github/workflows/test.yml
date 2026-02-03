@@ -22,8 +22,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run tests
-        run: npm run test
+      - name: Run unit tests
+        run: npx jest --testPathIgnorePatterns='PuppeteerGithubRepository'
+
+      - name: Run integration tests
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        run: npx jest PuppeteerGithubRepository
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
