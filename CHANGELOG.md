@@ -1,3 +1,10 @@
+## [1.3.20](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.19...v1.3.20) (2026-02-04)
+
+
+### Bug Fixes
+
+* **ci:** fallback to github.token for Dependabot PRs ([5648a58](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/5648a581dd6c7e712426abdc009147d9eb21b8bc)), closes [#163](https://github.com/HiromiShikata/npm-cli-gh-cookie/issues/163)
+
 ## [1.3.19](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.18...v1.3.19) (2025-10-18)
 
 
