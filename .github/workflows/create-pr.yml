@@ -27,7 +27,7 @@ jobs:
           pr_body: |
             :magic_wand: :sparkles:
 
-          draft: false
+          pr_draft: false
 
       - name: Assign PR to author
         if: steps.create_pr.outputs.pr_number
