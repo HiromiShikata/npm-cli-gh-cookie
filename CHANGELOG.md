@@ -1,3 +1,10 @@
+## [1.3.22](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.21...v1.3.22) (2026-02-07)
+
+
+### Bug Fixes
+
+* **ci:** skip empty-format-test workflow on tag pushes ([a6336a2](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/a6336a2dd9c1dc5b53c14bc1d03498f29686f559))
+
 ## [1.3.21](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.20...v1.3.21) (2026-02-06)
 
 
