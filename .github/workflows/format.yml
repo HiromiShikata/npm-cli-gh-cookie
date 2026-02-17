@@ -4,6 +4,7 @@ on:
   push:
     branches-ignore:
       - main
+  pull_request:
 
 jobs:
   format:
@@ -13,13 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          token: ${{ secrets.GH_TOKEN || github.token }}
+          token: ${{ github.event_name == 'push' && secrets.GH_TOKEN || github.token }}
+          persist-credentials: ${{ github.event_name == 'push' }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
       - run: git pull
+        if: github.event_name == 'push'
       - run: npm ci
       - run: npm run fmt && git --no-pager diff
       - uses: stefanzweifel/git-auto-commit-action@v7
+        if: github.event_name == 'push' && github.actor != 'dependabot[bot]'
         with:
           commit_message: 'style: `npm run fmt`'

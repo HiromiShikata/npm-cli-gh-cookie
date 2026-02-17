@@ -2,6 +2,7 @@ name: Test
 
 on:
   push:
+  pull_request:
 
 jobs:
   test:
@@ -26,7 +27,7 @@ jobs:
         run: npx jest --testPathIgnorePatterns='PuppeteerGithubRepository'
 
       - name: Run integration tests
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
         run: npx jest PuppeteerGithubRepository
         env:
           USERNAME: ${{ secrets.USERNAME }}
