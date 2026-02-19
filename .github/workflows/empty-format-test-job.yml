@@ -1,9 +1,6 @@
 name: Empty format test
 
-on:
-  push:
-    tags-ignore:
-      - '*'
+on: push
 
 jobs:
   test:
