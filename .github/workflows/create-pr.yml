@@ -8,6 +8,9 @@ on:
 jobs:
   create_and_enable_automerge:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -16,51 +19,56 @@ jobs:
         id: branch_name
         run: echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
 
-      - name: Create Pull Request
-        id: create_pr
-        uses: repo-sync/pull-request@v2
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          destination_branch: 'main'
-          source_branch: ''
-          pr_title: '${{ steps.branch_name.outputs.branch }}'
-          pr_body: |
-            :magic_wand: :sparkles:
-
-          pr_draft: false
+      - name: Get or create Pull Request number
+        id: pr_number
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+        run: |
+          BRANCH="${{ steps.branch_name.outputs.branch }}"
+          EXISTING=$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            echo "value=$EXISTING" >> "$GITHUB_OUTPUT"
+          else
+            if NUMBER=$(gh pr create \
+              --head "$BRANCH" \
+              --base main \
+              --title "$BRANCH" \
+              --body ':magic_wand: :sparkles:' \
+              --json number \
+              --jq '.number'); then
+              if [ -z "$NUMBER" ]; then
+                echo "Failed to determine pull request number after creation" >&2
+                exit 1
+              fi
+              echo "value=$NUMBER" >> "$GITHUB_OUTPUT"
+            else
+              echo "gh pr create failed, re-checking for existing pull request..." >&2
+              EXISTING_AFTER=$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')
+              if [ -n "$EXISTING_AFTER" ]; then
+                echo "value=$EXISTING_AFTER" >> "$GITHUB_OUTPUT"
+              else
+                echo "Failed to create or find pull request for branch '$BRANCH'" >&2
+                exit 1
+              fi
+            fi
+          fi
 
       - name: Assign PR to author
-        if: steps.create_pr.outputs.pr_number
+        if: steps.pr_number.outputs.value
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
         run: |
-          curl -s -X POST \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d '{"assignees":["${{ github.actor }}"]}' \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ steps.create_pr.outputs.pr_number }}/assignees"
-
-      - name: Get PR Node ID
-        if: steps.create_pr.outputs.pr_number
-        id: get_pr_id
-        run: |
-          PR_DATA=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.create_pr.outputs.pr_number }}")
-          PR_ID=$(echo "$PR_DATA" | jq -r '.node_id')
-          echo "node_id=$PR_ID" >> "$GITHUB_OUTPUT"
+          if ! gh pr edit ${{ steps.pr_number.outputs.value }} --add-assignee "${{ github.actor }}"; then
+            echo "Error: Failed to assign PR #${{ steps.pr_number.outputs.value }} to ${{ github.actor }}. This may indicate missing permissions or a misconfigured GH_TOKEN." >&2
+            exit 1
+          fi
 
       - name: Enable Auto Merge for PR
-        if: steps.create_pr.outputs.pr_number
+        if: steps.pr_number.outputs.value
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
         run: |
-          RESPONSE=$(curl -s -X POST \
-            -H "Authorization: bearer ${{ secrets.GH_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "query": "mutation($id: ID!) { enablePullRequestAutoMerge(input: { pullRequestId: $id }) { clientMutationId } }",
-              "variables": {
-                "id": "'"${{ steps.get_pr_id.outputs.node_id }}"'"
-              }
-            }' \
-            "https://api.github.com/graphql")
-          echo "$RESPONSE"
-          if echo "$RESPONSE" | jq -e '.errors' >/dev/null; then
-            echo "Failed to enable auto merge"
+          if ! gh pr merge ${{ steps.pr_number.outputs.value }} --auto --merge; then
+            echo "Error: Failed to enable auto-merge for PR #${{ steps.pr_number.outputs.value }}. This may indicate missing permissions, branch protection rules not configured for auto-merge, or that the PR does not meet merge requirements." >&2
             exit 1
           fi
