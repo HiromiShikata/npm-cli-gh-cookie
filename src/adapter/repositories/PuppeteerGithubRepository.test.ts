@@ -1,3 +1,4 @@
+import puppeteer from 'puppeteer';
 import { PuppeteerGithubRepository } from './PuppeteerGithubRepository';
 import { config } from 'dotenv';
 
@@ -8,6 +9,38 @@ describe('PuppeteerGithubRepository', () => {
 
   beforeAll(() => {
     repository = new PuppeteerGithubRepository();
+  });
+
+  describe('inputTotp', () => {
+    it('should wait for #app_totp element before focusing', async () => {
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      });
+      const page = await browser.newPage();
+      await page.setContent(`
+        <html><body>
+          <script>
+            setTimeout(() => {
+              const input = document.createElement('input');
+              input.id = 'app_totp';
+              document.body.appendChild(input);
+            }, 1000);
+          </script>
+        </body></html>
+      `);
+
+      await repository.inputTotp(page, 'JBSWY3DPEHPK3PXP');
+
+      const value = await page.$eval('#app_totp', (el) => {
+        if (el instanceof HTMLInputElement) {
+          return el.value;
+        }
+        return '';
+      });
+      expect(value.length).toBeGreaterThan(0);
+      await browser.close();
+    });
   });
 
   it('should return a string after completing the process', async () => {
