@@ -56,6 +56,7 @@ class PuppeteerGithubRepository {
             return cookies.some((c) => c !== null && typeof c === 'object' && 'name' in c && 'value' in c);
         };
         this.inputTotp = async (page, authenticatorKey) => {
+            await page.waitForSelector('#app_totp', { timeout: 10000 });
             await page.focus('#app_totp');
             const token = (0, authenticator_1.generateToken)(authenticatorKey);
             await page.keyboard.type(token);
