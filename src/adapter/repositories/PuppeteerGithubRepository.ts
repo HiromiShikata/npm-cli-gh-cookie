@@ -70,6 +70,7 @@ export class PuppeteerGithubRepository implements GithubRepository {
     );
   };
   inputTotp = async (page: Page, authenticatorKey: string) => {
+    await page.waitForSelector('#app_totp', { timeout: 10000 });
     await page.focus('#app_totp');
     const token = generateToken(authenticatorKey);
     await page.keyboard.type(token);
