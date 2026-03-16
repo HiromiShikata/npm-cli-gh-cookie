@@ -1,3 +1,10 @@
+## [1.3.23](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.22...v1.3.23) (2026-03-16)
+
+
+### Bug Fixes
+
+* **src:** add waitForSelector before focus on #app_totp ([019db60](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/019db609ec99e7e2922c452b08554a7f9f2d0cd6)), closes [#app_totp](https://github.com/HiromiShikata/npm-cli-gh-cookie/issues/app_totp)
+
 ## [1.3.22](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.21...v1.3.22) (2026-02-07)
 
 
