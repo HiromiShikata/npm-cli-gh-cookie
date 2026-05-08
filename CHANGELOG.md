@@ -1,3 +1,10 @@
+## [1.3.24](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.23...v1.3.24) (2026-05-08)
+
+
+### Bug Fixes
+
+* fix TypeScript 6.0 compatibility issues in tsconfig ([fe42cb3](https://github.com/HiromiShikata/npm-cli-gh-cookie/commit/fe42cb3bf2597ccd9cd9049ef43a6a1ad03bbcba))
+
 ## [1.3.23](https://github.com/HiromiShikata/npm-cli-gh-cookie/compare/v1.3.22...v1.3.23) (2026-03-16)
 
 
