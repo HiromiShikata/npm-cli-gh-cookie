@@ -45,6 +45,7 @@ jobs:
     steps:
       - name: Generate hs-bot-gh-ap installation token
         id: app-token
+        if: github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]'
         uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.HS_BOT_GH_AP_APP_ID }}
@@ -235,7 +236,8 @@ jobs:
       - name: Auto assign PR to owner
         if: >-
           github.event_name == 'pull_request' &&
-          github.event.action == 'opened'
+          github.event.action == 'opened' &&
+          github.event.pull_request.user.login != 'dependabot[bot]'
         uses: pozil/auto-assign-issue@v3.0.0
         with:
           assignees: HiromiShikata
@@ -245,7 +247,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Check linked issues in pull requests
     if: >-
-      (github.event_name == 'pull_request')
+      (github.event_name == 'pull_request') &&
+      github.event.pull_request.user.login != 'dependabot[bot]'
     steps:
       - name: Generate hs-bot-gh-ap installation token
         id: app-token
